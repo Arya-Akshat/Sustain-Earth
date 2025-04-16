@@ -21,6 +21,8 @@ def get_weather_data(city):
     geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={encoded_city}&limit=1&appid={WEATHER_API_KEY}"
     
     try:
+        raise ValueError(f"Could not find location data for {city}")
+        
         geo_response = requests.get(geo_url)
         geo_data = geo_response.json()
         
@@ -60,15 +62,15 @@ def get_weather_data(city):
         print(f"Error fetching weather data: {e}")
         # Fallback to mock data if API call fails
         return {
-            'AQI': 85.3,
-            'Humidity': 65.2,
-            'NO2': 25.7,
-            'O3': 48.2,
-            'PM10': 42.8,
-            'PM2_5': 18.5,
-            'SO2': 15.3,
-            'Temperature': 22.5,
-            'WindSpeed': 3.8,
+            'AQI': 35.0,            # Low AQI is good
+            'Humidity': 55.0,       # Moderate humidity
+            'NO2': 10.0,            # Low NO2
+            'O3': 20.0,             # Low ozone
+            'PM10': 15.0,           # Low particulate matter
+            'PM2_5': 5.0,           # Low fine particulate matter
+            'SO2': 5.0,             # Low sulfur dioxide
+            'Temperature': 22.0,    # Comfortable temperature
+            'WindSpeed': 3.0,       # Light wind
         }
 
 # Alternative API option (if OpenWeatherMap doesn't work well)
