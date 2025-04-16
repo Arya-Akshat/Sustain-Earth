@@ -21,8 +21,7 @@ def get_weather_data(city):
     geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={encoded_city}&limit=1&appid={WEATHER_API_KEY}"
     
     try:
-        raise ValueError(f"Could not find location data for {city}")
-        
+        # Fetch coordinates        
         geo_response = requests.get(geo_url)
         geo_data = geo_response.json()
         

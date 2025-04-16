@@ -96,13 +96,13 @@ def predict_health_impact(city):
         learn = load_model(model_path)
         
         # Normalize the input data
-        # normalized_data = normalize_input_data(weather_data)
-        # print("\nNormalized inputs:")
-        # for key, value in normalized_data.items():
-        #     print(f"  {key}: {value:.6f}")
+        normalized_data = normalize_input_data(weather_data)
+        print("\nNormalized inputs:")
+        for key, value in normalized_data.items():
+            print(f"  {key}: {value:.6f}")
         
         # Make prediction
-        row, pred_tensor, raw_preds = learn.predict(weather_data)
+        row, pred_tensor, raw_preds = learn.predict(normalized_data)
         
         # Extract the predicted value - this is your health impact score
         predicted_score = pred_tensor.item()
