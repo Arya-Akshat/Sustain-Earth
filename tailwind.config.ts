@@ -61,7 +61,60 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Environment-specific colors
+				nature: {
+					50: '#F2FCE2',
+					100: '#DFFBBE',
+					200: '#C0F08D',
+					300: '#A0E35D',
+					400: '#80D62C',
+					500: '#61BE0B',
+					600: '#4E9B09',
+					700: '#3B7607',
+					800: '#285304',
+					900: '#153002',
+					foreground: '#ffffff'
+				},
+                earth: {
+                    50: '#F8F5F2',
+                    100: '#F0EAE5',
+                    200: '#E2D5CB',
+                    300: '#D3C0B1',
+                    400: '#C4AB97',
+                    500: '#B5967E',
+                    600: '#A68165',
+                    700: '#8A6952',
+                    800: '#6E513E',
+                    900: '#52392A',
+                    foreground: '#ffffff'
+                },
+                water: {
+                    50: '#F0F9FF',
+                    100: '#E0F2FE',
+                    200: '#BAE6FD',
+                    300: '#7DD3FC',
+                    400: '#38BDF8',
+                    500: '#0EA5E9',
+                    600: '#0284C7',
+                    700: '#0369A1',
+                    800: '#075985',
+                    900: '#0C4A6E',
+                    foreground: '#ffffff'
+                },
+                energy: {
+                    50: '#FEF7CD',
+                    100: '#FEEE9B',
+                    200: '#FEE669',
+                    300: '#FDDE37',
+                    400: '#FDD605',
+                    500: '#D5B302',
+                    600: '#A89002',
+                    700: '#7C6C01',
+                    800: '#504701',
+                    900: '#242000',
+                    foreground: '#000000'
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
