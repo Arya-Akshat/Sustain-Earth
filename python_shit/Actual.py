@@ -8,12 +8,12 @@ import pathlib
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 
-def load_model(model_path="model1.pkl"):
+def load_model(model_path="model2.pkl"):
     """
     Load the FastAI model from pickle file
     
     Args:
-        model_path (str): Path to the model1.pkl file
+        model_path (str): Path to the model2.pkl file
     
     Returns:
         object: Loaded FastAI learner
@@ -92,7 +92,7 @@ def predict_health_impact(city):
                 weather_data[input_name] = 0  # Use neutral value
         
         # Load the model
-        model_path = os.path.join("python_shit", "model1.pkl")
+        model_path = os.path.join("python_shit", "model2.pkl")
         learn = load_model(model_path)
         
         # Normalize the input data
