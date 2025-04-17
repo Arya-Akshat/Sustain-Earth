@@ -27,7 +27,7 @@ const WeatherWidget = () => {
         
         const mockWeather: WeatherData = {
           location: "Bengaluru, India",
-          temperature: 22,
+          temperature: 32,
           condition: "Sunny",
           humidity: 60
         };
