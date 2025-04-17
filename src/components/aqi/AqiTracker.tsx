@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import axios from 'axios'
 
 interface AqiData {
   location: string;
@@ -38,10 +39,11 @@ const AqiTracker = () => {
     try {
       // In a real app, you would fetch from an AQI API
       // For now, we'll simulate a response based on the location
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await axios.get('localhost:5000');
       
       // Mock data for demonstration
-      const mockData: AqiData = {
+      let mockData: AqiData = {
         location: location,
         aqi: Math.floor(Math.random() * 300) + 1,
         category: "Moderate", // Would be determined based on AQI
@@ -52,6 +54,7 @@ const AqiTracker = () => {
           no2: Math.floor(Math.random() * 40) + 1
         }
       };
+      mockData = response.data;
       
       // Set category based on AQI value
       if (mockData.aqi <= 50) mockData.category = "Good";
