@@ -19,7 +19,7 @@ const Index = () => {
                 Creating a <span className="text-nature-600">Sustainable</span> Future Together
               </h1>
               <p className="text-lg text-gray-600">
-                Join our mission to protect the environment, address climate change, and build a 
+                Join our mission to protect the environment, address climate change, and build a
                 greener world for future generations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -33,7 +33,7 @@ const Index = () => {
             </div>
             <div className="md:w-1/2">
               <img
-                src="https://images.unsplash.com/photo-1623011188524-2f595e0c9be1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
+                src="https://www.shutterstock.com/shutterstock/videos/3622686793/thumb/12.jpg?ip=x480"
                 alt="Sustainable Earth"
                 className="rounded-lg shadow-lg w-full max-w-md mx-auto"
               />
@@ -57,19 +57,19 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Take Action Today</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FeatureCard 
+            <FeatureCard
               icon={<Wind className="h-10 w-10 text-water-500" />}
               title="Air Quality Index"
               description="Check the real-time air quality in your area and make informed decisions."
               link="/aqi"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Globe className="h-10 w-10 text-nature-500" />}
               title="Join Campaigns"
               description="Participate in environmental campaigns making a real difference."
               link="/campaigns"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<BarChart3 className="h-10 w-10 text-energy-500" />}
               title="Carbon Footprint"
               description="Calculate your carbon footprint and find ways to reduce it."

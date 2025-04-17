@@ -420,12 +420,12 @@ const CarbonCalculator = () => {
               
               <div className="flex items-center justify-center text-sm text-gray-600">
                 <HelpCircle className="h-4 w-4 mr-2" />
-                <span>The average person produces about 8,000 kg CO₂e per year.</span>
+                <span>The average person produces about 5,000 kg CO₂e per year.</span>
               </div>
               
-              {result > 10000 ? (
+              {result > 9000 ? (
                 <p className="mt-4 text-amber-600">Your footprint is higher than average. Consider ways to reduce your impact.</p>
-              ) : result > 5000 ? (
+              ) : result > 6000 ? (
                 <p className="mt-4 text-amber-500">Your footprint is around average. There's room for improvement!</p>
               ) : (
                 <p className="mt-4 text-green-600">Your footprint is lower than average. Great job!</p>

@@ -130,12 +130,7 @@ const GetInvolved = () => {
                 </div>
               </div>
             </CardContent>
-            <CardFooter>
-              <div className="w-full text-center text-sm text-gray-500">
-                <p>SustainEarth is a registered 501(c)(3) non-profit organization.</p>
-                <p>All donations are tax-deductible to the extent allowed by law.</p>
-              </div>
-            </CardFooter>
+            
           </Card>
         </TabsContent>
       </Tabs>
