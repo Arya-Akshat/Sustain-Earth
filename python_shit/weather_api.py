@@ -2,6 +2,23 @@ import requests
 import json
 from urllib.parse import quote
 
+def Range_aqi(aqi_level):
+    # OldMax, OldMin = 5, 1
+    # NewMax, NewMin = 300,0
+    # OldRange = OldMax - OldMin
+    # NewRange = NewMax - NewMin
+    # NewValue = (((orignal - OldMin) * NewRange) / OldRange) + NewMin
+    # return NewValue
+    # Range bounds
+    mapping = {
+        1: 25,    # Good
+        2: 75,    # Fair
+        3: 125,   # Moderate
+        4: 175,   # Poor
+        5: 250    # Very Poor
+    }
+    return mapping.get(aqi_level, None)  # Returns None if input is invalid
+
 def get_weather_data(city):
     """
     Fetch weather and air quality data for a given city using free APIs.
@@ -21,7 +38,7 @@ def get_weather_data(city):
     geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={encoded_city}&limit=1&appid={WEATHER_API_KEY}"
     
     try:
-        # Fetch coordinates        
+        # Fetch coordinates    
         geo_response = requests.get(geo_url)
         geo_data = geo_response.json()
         
@@ -43,7 +60,7 @@ def get_weather_data(city):
         
         # Extract and organize the data according to our model requirements
         result = {
-            'AQI': air_data['list'][0]['main']['aqi'] * 20,  # Convert 1-5 scale to AQI range
+            'AQI': Range_aqi(air_data['list'][0]['main']['aqi']),  # Convert 1-5 scale to AQI range
             'Humidity': weather_data['main']['humidity'],
             'Temperature': weather_data['main']['temp'],
             'WindSpeed': weather_data['wind']['speed'],
@@ -61,15 +78,15 @@ def get_weather_data(city):
         print(f"Error fetching weather data: {e}")
         # Fallback to mock data if API call fails
         return {
-            'AQI': 35.0,            # Low AQI is good
-            'Humidity': 55.0,       # Moderate humidity
-            'NO2': 10.0,            # Low NO2
-            'O3': 20.0,             # Low ozone
-            'PM10': 15.0,           # Low particulate matter
-            'PM2_5': 5.0,           # Low fine particulate matter
-            'SO2': 5.0,             # Low sulfur dioxide
-            'Temperature': 22.0,    # Comfortable temperature
-            'WindSpeed': 3.0,       # Light wind
+            'AQI': 187.0,            # Low AQI is good
+            'Humidity': 84.0,       # Moderate humidity
+            # 'NO2': 10.0,            # Low NO2
+            # 'O3': 20.0,             # Low ozone
+            'PM10': 296.0,           # Low particulate matter
+            'PM2_5': 13.0,           # Low fine particulate matter
+            # 'SO2': 5.0,             # Low sulfur dioxide
+            'Temperature': 5.0,    # Comfortable temperature
+            'WindSpeed': 6.0,       # Light wind
         }
 
 # Alternative API option (if OpenWeatherMap doesn't work well)

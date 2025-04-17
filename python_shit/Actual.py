@@ -8,12 +8,12 @@ import pathlib
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 
-def load_model(model_path="model2.pkl"):
+def load_model(model_path="model3.pkl"):
     """
     Load the FastAI model from pickle file
     
     Args:
-        model_path (str): Path to the model2.pkl file
+        model_path (str): Path to the model3.pkl file
     
     Returns:
         object: Loaded FastAI learner
@@ -43,7 +43,7 @@ def normalize_input_data(input_data, normalization_stats=None):
     # These are approximate values based on your image data
     if normalization_stats is None:
         normalization_stats = {
-            'AQI': {'mean': 0.0, 'std': 1.0},
+            'AQI': {'mean': 90, 'std': 40},
             'Humidity': {'mean': 50.0, 'std': 20.0},
             'NO2': {'mean': 30.0, 'std': 20.0},
             'O3': {'mean': 40.0, 'std': 30.0},
@@ -82,7 +82,7 @@ def predict_health_impact(city):
             print(f"  {key}: {value}")
         
         # Make sure all required inputs are present
-        required_inputs = ['AQI', 'Humidity', 'NO2', 'O3', 'PM10', 'PM2_5', 'SO2', 'Temperature', 'WindSpeed']
+        required_inputs = ['AQI', 'Humidity', 'PM10', 'PM2_5',  'Temperature', 'WindSpeed']
         missing_inputs = [input_name for input_name in required_inputs if input_name not in weather_data]
         
         if missing_inputs:
@@ -92,7 +92,7 @@ def predict_health_impact(city):
                 weather_data[input_name] = 0  # Use neutral value
         
         # Load the model
-        model_path = os.path.join("python_shit", "model2.pkl")
+        model_path = os.path.join("python_shit", "model3.pkl")
         learn = load_model(model_path)
         
         # Normalize the input data
@@ -119,7 +119,7 @@ def main():
     """
     city_name = input("Enter city name: ")
     try:
-        health_score = predict_health_impact(city_name)
+        health_score = predict_health_impact(city_name) 
         print(f"\nPredicted Health Impact Score for {city_name}: {health_score:.2f}")
         
         # Interpretation of the score
