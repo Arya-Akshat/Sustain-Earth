@@ -12,7 +12,7 @@ def Range_aqi(aqi_level):
     # Range bounds
     mapping = {
         1: 25,    # Good
-        2: 75,    # Fair
+        2: 75,    # Fairclear
         3: 125,   # Moderate
         4: 175,   # Poor
         5: 250    # Very Poor
@@ -65,11 +65,8 @@ def get_weather_data(city):
             'Temperature': weather_data['main']['temp'],
             'WindSpeed': weather_data['wind']['speed'],
             # Air quality components in μg/m³
-            'NO2': air_data['list'][0]['components']['no2'],
-            'O3': air_data['list'][0]['components']['o3'],
             'PM10': air_data['list'][0]['components']['pm10'],
             'PM2_5': air_data['list'][0]['components']['pm2_5'],
-            'SO2': air_data['list'][0]['components']['so2']
         }
         
         return result
@@ -80,70 +77,9 @@ def get_weather_data(city):
         return {
             'AQI': 187.0,            # Low AQI is good
             'Humidity': 84.0,       # Moderate humidity
-            # 'NO2': 10.0,            # Low NO2
-            # 'O3': 20.0,             # Low ozone
             'PM10': 296.0,           # Low particulate matter
             'PM2_5': 13.0,           # Low fine particulate matter
-            # 'SO2': 5.0,             # Low sulfur dioxide
             'Temperature': 5.0,    # Comfortable temperature
             'WindSpeed': 6.0,       # Light wind
         }
 
-# Alternative API option (if OpenWeatherMap doesn't work well)
-def get_weather_data_alternative(city):
-    """
-    Alternative API option using AirVisual API - they have a free developer plan
-    Sign up at https://www.iqair.com/dashboard/api
-    
-    Args:
-        city (str): Name of the city
-    
-    Returns:
-        dict: Dictionary containing weather and air quality data
-    """
-    # AirVisual API Key
-    API_KEY = "YOUR_AIRVISUAL_API_KEY"  # Replace with your actual API key
-    
-    try:
-        # First get country and state from city name
-        # This is a simplification - in a real app you might need to handle this differently
-        url = f"http://api.airvisual.com/v2/city?city={quote(city)}&key={API_KEY}"
-        response = requests.get(url)
-        data = response.json()
-        
-        if data['status'] == 'success':
-            current_data = data['data']['current']
-            
-            result = {
-                'AQI': current_data['pollution']['aqius'],
-                'Humidity': current_data['weather']['hu'],
-                'Temperature': current_data['weather']['tp'],
-                'WindSpeed': current_data['weather']['ws'],
-                # Note: AirVisual free tier doesn't provide individual pollutant values
-                # You might need to remove these from your model or use OpenWeatherMap
-                'PM2_5': current_data['pollution'].get('pm25', 0),
-                # The following are not available in free tier
-                'NO2': 0,
-                'O3': 0,
-                'PM10': 0,
-                'SO2': 0
-            }
-            
-            return result
-        else:
-            raise Exception(f"API Error: {data['data']['message']}")
-            
-    except Exception as e:
-        print(f"Error fetching weather data: {e}")
-        # Fallback to mock data
-        return {
-            'AQI': 85.3,
-            'Humidity': 65.2,
-            'NO2': 25.7,
-            'O3': 48.2,
-            'PM10': 42.8,
-            'PM2_5': 18.5,
-            'SO2': 15.3,
-            'Temperature': 22.5,
-            'WindSpeed': 3.8,
-        }
