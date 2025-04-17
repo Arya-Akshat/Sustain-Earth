@@ -21,7 +21,7 @@ const mockArticles: NewsArticle[] = [
     title: "New Study Shows Significant Ocean Warming in the Past Decade",
     summary: "Scientists have found that oceans are warming at an accelerated rate, raising concerns about marine ecosystems.",
     imageUrl: "https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2NlYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    date: "2023-06-15",
+    date: "2024-06-15",
     source: "Environmental Science Journal",
     url: "#",
     category: "Climate"
@@ -31,7 +31,7 @@ const mockArticles: NewsArticle[] = [
     title: "Renewable Energy Surpasses Coal in Power Generation",
     summary: "For the first time in history, renewable energy sources have generated more electricity than coal globally.",
     imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2luZCUyMHR1cmJpbmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    date: "2023-06-10",
+    date: "2024-06-10",
     source: "Energy Today",
     url: "#",
     category: "Energy"
@@ -41,7 +41,7 @@ const mockArticles: NewsArticle[] = [
     title: "Biodiversity Loss Accelerating at Unprecedented Rate",
     summary: "A new report warns that species extinction is occurring at an alarming rate, threatening ecosystem stability worldwide.",
     imageUrl: "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YW1hem9uJTIwcmFpbmZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    date: "2023-06-05",
+    date: "2024-06-05",
     source: "Wildlife Conservation Society",
     url: "#",
     category: "Biodiversity"
@@ -51,7 +51,7 @@ const mockArticles: NewsArticle[] = [
     title: "Major Company Commits to Carbon Neutrality by 2025",
     summary: "Tech giant announces ambitious plan to eliminate its carbon footprint and invest in sustainable business practices.",
     imageUrl: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c29sYXIlMjBwYW5lbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    date: "2023-05-30",
+    date: "2024-05-30",
     source: "Business Sustainability",
     url: "#",
     category: "Business"
@@ -61,7 +61,7 @@ const mockArticles: NewsArticle[] = [
     title: "New Plastic-Eating Enzyme Could Revolutionize Recycling",
     summary: "Researchers develop an enzyme that can break down plastic bottles in days instead of centuries.",
     imageUrl: "https://images.unsplash.com/photo-1576062462773-57fccb35f4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVjeWNsaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-    date: "2023-05-25",
+    date: "2024-05-25",
     source: "Science Innovations",
     url: "#",
     category: "Innovation"
@@ -71,7 +71,7 @@ const mockArticles: NewsArticle[] = [
     title: "Sustainable Cities: The Future of Urban Planning",
     summary: "How cities around the world are implementing green infrastructure for a more sustainable future.",
     imageUrl: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eSUyMHNreWxpbmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    date: "2023-05-20",
+    date: "2024-05-20",
     source: "Urban Planning Monthly",
     url: "#",
     category: "Urban"

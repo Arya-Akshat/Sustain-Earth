@@ -26,8 +26,8 @@ const WeatherWidget = () => {
         await new Promise(resolve => setTimeout(resolve, 1000));
         
         const mockWeather: WeatherData = {
-          location: "New York City",
-          temperature: 22,
+          location: "Bengaluru, India",
+          temperature: 32,
           condition: "Sunny",
           humidity: 60
         };

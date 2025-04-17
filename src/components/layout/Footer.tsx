@@ -65,20 +65,13 @@ const Footer = () => {
               <span>contact@sustainearth.org</span>
             </div>
             <address className="not-italic text-gray-600">
-              123 Eco Street<br />
-              Green City, Earth 12345
+              123 SS PG<br />
+              RVCE, Bengaluru
             </address>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-6 mt-6 text-sm text-center text-gray-500">
-          <p>© {new Date().getFullYear()} SustainEarth. All rights reserved.</p>
-          <div className="flex justify-center space-x-4 mt-2">
-            <a href="#" className="hover:text-nature-600">Privacy Policy</a>
-            <a href="#" className="hover:text-nature-600">Terms of Service</a>
-            <a href="#" className="hover:text-nature-600">Cookie Policy</a>
-          </div>
-        </div>
+        
       </div>
     </footer>
   );

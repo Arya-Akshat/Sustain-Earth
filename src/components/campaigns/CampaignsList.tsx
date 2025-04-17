@@ -22,8 +22,8 @@ const mockCampaigns: Campaign[] = [
     title: "Community Tree Planting Day",
     description: "Join us for a day of tree planting in the city park. Help us improve air quality and beautify our community. All materials will be provided. Please bring water and wear appropriate clothing.",
     imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2874&q=80",
-    date: "2023-10-15T09:00:00",
-    location: "Central Park, New York",
+    date: "2025-10-15T09:00:00",
+    location: "Central Park, Delhi",
     participants: 28,
     maxParticipants: 50,
     category: "Reforestation"
@@ -33,8 +33,8 @@ const mockCampaigns: Campaign[] = [
     title: "Beach Cleanup Initiative",
     description: "Help clean up our local beaches from plastic and other waste. This event is suitable for all ages. Gloves, bags, and trash pickers will be provided.",
     imageUrl: "https://images.unsplash.com/photo-1618477462146-050d2757350d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-    date: "2023-10-22T10:00:00",
-    location: "Sunset Beach, California",
+    date: "2025-10-22T10:00:00",
+    location: "Thorn Beach, Goa",
     participants: 45,
     maxParticipants: 100,
     category: "Cleanup"
@@ -44,8 +44,8 @@ const mockCampaigns: Campaign[] = [
     title: "Urban Garden Workshop",
     description: "Learn how to start your own urban garden even in small spaces. Includes a seed exchange and information on sustainable gardening practices.",
     imageUrl: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-    date: "2023-11-05T14:00:00",
-    location: "Community Center, Chicago",
+    date: "2025-11-05T14:00:00",
+    location: "Community Center, Mumbai",
     participants: 18,
     maxParticipants: 30,
     category: "Education"
@@ -55,8 +55,8 @@ const mockCampaigns: Campaign[] = [
     title: "River Restoration Project",
     description: "Join this multi-day project to help restore our local river ecosystem. Activities include debris removal, native plant planting, and water quality testing.",
     imageUrl: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-    date: "2023-11-18T08:00:00",
-    location: "Green River, Washington",
+    date: "2025-11-18T08:00:00",
+    location: "Ganga River, Uttar Pradesh",
     participants: 12,
     maxParticipants: 40,
     category: "Restoration"
