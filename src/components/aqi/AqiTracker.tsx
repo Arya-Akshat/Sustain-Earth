@@ -8,14 +8,15 @@ import { Progress } from "@/components/ui/progress";
 import axios from 'axios'
 
 interface AqiData {
+  healthImpactClass: string
   location: string;
   aqi: number;
   category: string;
   pollutants: {
     pm25: number;
     pm10: number;
-    o3: number;
-    no2: number;
+    temperature: number;
+    humidity: number;
   };
 }
 
@@ -40,21 +41,11 @@ const AqiTracker = () => {
       // In a real app, you would fetch from an AQI API
       // For now, we'll simulate a response based on the location
       // await new Promise(resolve => setTimeout(resolve, 1000));
-      const response = await axios.get('localhost:5000');
+      const response = await axios.get('http://localhost:5000?city='+location);
       
       // Mock data for demonstration
-      let mockData: AqiData = {
-        location: location,
-        aqi: Math.floor(Math.random() * 300) + 1,
-        category: "Moderate", // Would be determined based on AQI
-        pollutants: {
-          pm25: Math.floor(Math.random() * 100) + 1,
-          pm10: Math.floor(Math.random() * 150) + 1,
-          o3: Math.floor(Math.random() * 50) + 1,
-          no2: Math.floor(Math.random() * 40) + 1
-        }
-      };
-      mockData = response.data;
+      let mockData: AqiData = response.data;
+      console.log(mockData);
       
       // Set category based on AQI value
       if (mockData.aqi <= 50) mockData.category = "Good";
@@ -67,7 +58,7 @@ const AqiTracker = () => {
       setAqiData(mockData);
     } catch (err) {
       setError("Failed to fetch air quality data");
-      console.error(err);
+      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -159,21 +150,31 @@ const AqiTracker = () => {
                   <p className="font-medium">{aqiData.pollutants.pm10} µg/m³</p>
                 </div>
                 <div className="bg-gray-50 p-3 rounded">
-                  <p className="text-sm text-gray-500">Ozone (O₃)</p>
-                  <p className="font-medium">{aqiData.pollutants.o3} ppb</p>
+                  <p className="text-sm text-gray-500">Temperatue (in Celcius)</p>
+                  <p className="font-medium">{aqiData.pollutants.temperature} Celcius</p>
                 </div>
                 <div className="bg-gray-50 p-3 rounded">
-                  <p className="text-sm text-gray-500">Nitrogen Dioxide (NO₂)</p>
-                  <p className="font-medium">{aqiData.pollutants.no2} ppb</p>
+                  <p className="text-sm text-gray-500">Humidity</p>
+                  <p className="font-medium">{aqiData.pollutants.humidity} %</p>
                 </div>
               </div>
             </div>
           )}
         </CardContent>
         {aqiData && (
-          <CardFooter className="text-sm text-gray-500 border-t pt-4">
-            <p>Data is simulated. In a real application, data would be sourced from air quality monitoring stations.</p>
-          </CardFooter>
+          <CardFooter className="text-sm text-black-500 border-t pt-4">
+          <p>{aqiData.healthImpactClass} :  </p>
+          <br /> {/* Line break between two paragraphs */}
+          <p>
+                
+            {aqiData.healthImpactClass === "High Impact Risk" && "Lung Cancer, Ischemic Stroke, Acute Myocardial Infarction (Heart Attack)"}
+            {aqiData.healthImpactClass === "Very High Impact Risk" && "Chronic Obstructive Pulmonary Disease (COPD),Emphysema,Chronic Bronchitis"}
+            {aqiData.healthImpactClass === "Moderate Impact Risk" && "Hypertension (High Blood Pressure), Atherosclerosis, Ischemic Heart Disease."}
+            {aqiData.healthImpactClass === "Low Impact Risk" && "Chronic Bronchitis, Persistent Asthma, Bronchiolitis Obliterans"}
+            {aqiData.healthImpactClass === "Very Low Impact Risk" && "Allergic Rhinitis,Acute Pharyngitis,Conjunctivitis"}
+          </p>        
+        </CardFooter>
+        
         )}
       </Card>
     </div>

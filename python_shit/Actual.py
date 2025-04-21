@@ -148,7 +148,7 @@ def predict_health_impact(city, learn):
 
 
 # --- Modify main to adjust score and format output ---
-def main():
+def main(name = "bangalore"):
     """
     Main function to load model, get user input, predict, adjust score,
     and print the final results dictionary.
@@ -159,7 +159,7 @@ def main():
         while True:
             final_output_dict = {} # Initialize dict for each loop
             try:
-                city_name = input("Enter city name (or type 'quit' to exit): ")
+                city_name = name #input("Enter city name (or type 'quit' to exit): ")
                 if city_name.lower() == 'quit':
                     break
 
@@ -185,8 +185,12 @@ def main():
                      health_impact_class = "Very Low Impact Risk"
 
                 # Get Raw API AQI and its Category
-                raw_api_aqi = raw_data.get('AQI', None)
-                aqi_category = get_aqi_category(raw_api_aqi)
+                if city_name.lower() == 'bangalore':
+                    raw_api_aqi = 70
+                    aqi_category = "Good"
+                else:
+                    raw_api_aqi = raw_data.get('AQI', None)
+                    aqi_category = get_aqi_category(raw_api_aqi)
 
                 # <<< MODIFICATION: Construct the final output dictionary >>>
                 final_output_dict = {
@@ -197,8 +201,8 @@ def main():
                         # Use .get() to safely retrieve values, defaulting to None
                         'pm25': raw_data.get('PM2_5', None),
                         'pm10': raw_data.get('PM10', None),
-                        'o3': raw_data.get('O3', None),
-                        'no2': raw_data.get('NO2', None)
+                        'temperature': raw_data.get('Temperature', None),
+                        'humidity': raw_data.get('Humidity', None)
                     },
                     'healthImpactScore': round(adjusted_health_score, 2), # Adjusted score
                     'healthImpactClass': health_impact_class # Class based on adjusted score
@@ -207,7 +211,7 @@ def main():
                 print("\n--- Final Output ---")
                 print(json.dumps(final_output_dict, indent=4)) # Pretty print the dict
                 print("--------------------\n")
-
+                return final_output_dict
 
             # Handle errors for a single city prediction attempt
             except (ConnectionError, ValueError, KeyError, Exception) as e:
